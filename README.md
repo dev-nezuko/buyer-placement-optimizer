@@ -13,3 +13,5 @@ The algorithm ensures to distribute home buyers evenly among neighborhoods, such
 > python assessment.py
 
 The code will generate an output file named `generated_output.txt`, containing the optimal placement of home buyers in neighborhoods.
+
+Running the code will also automatically run an associated test, which asserts that the generated output file is correct.
