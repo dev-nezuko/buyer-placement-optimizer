@@ -1,3 +1,6 @@
+import unittest
+from tests import TestFileContent
+
 def read_input_data(filename):
   neighborhoods, home_buyers = [], []
 
@@ -57,3 +60,15 @@ def generate_selection(neighborhood, buyer, buyer_value):
     'buyer': buyer,
     'score': [b['score'] for b in buyer_value[:-1] if b['neighborhood'] == neighborhood['N']][0]
   }
+
+def run_tests():
+  test_suite = unittest.TestSuite()
+  test_suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestFileContent))
+
+  test_runner = unittest.TextTestRunner()
+  test_result = test_runner.run(test_suite)
+
+  if test_result.wasSuccessful():
+    print("Generated output file is correct.")
+  else:
+    print("Generated output file does not match the expected output.")
