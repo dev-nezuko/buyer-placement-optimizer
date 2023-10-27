@@ -4,13 +4,23 @@ This application places home buyers moving to Charlottesville in different avail
 
 The algorithm ensures to distribute home buyers evenly among neighborhoods, such that no home buyer could subsequently move to a more preferred neighborhood and be a better fit than those already residing there.
 
-# Requirements
+## Requirements
 
 - Python 3
 
-# Usage
+## Getting Started
 
-> python assessment.py
+1. **Clone the repository**:
+    > git clone <[repository URL](https://github.com/dev-nezuko/buyer-placement-optimizer)>
+
+2. **Move into the repository directory**:
+   > cd pearl-certification-assessment
+
+3. **Run the application**:
+
+    > python main.py
+
+&nbsp;
 
 The code will generate an output file named `generated_output.txt`, containing the optimal placement of home buyers in neighborhoods.
 
