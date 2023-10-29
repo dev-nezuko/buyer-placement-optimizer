@@ -24,4 +24,10 @@ The algorithm ensures to distribute home buyers evenly among neighborhoods, such
 
 The code will generate an output file named `generated_output.txt`, containing the optimal placement of home buyers in neighborhoods.
 
-Running the code will also automatically run an associated test, which asserts that the generated output file is correct.
+## Running test cases
+
+Running the code by following the above steps will also automatically run an associated test, which asserts that the generated output file is correct.
+
+To manually run the tests (after the output file to be tested has been generated), run the following:
+
+  > python -m unittest discover tests
