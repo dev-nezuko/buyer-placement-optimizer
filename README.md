@@ -1,4 +1,4 @@
-# Pearl Certification Assessment
+# Pearl Certification
 
 This application places home buyers moving to Charlottesville in different available neighborhoods, based on their preferences and compatibility with neighborhood scores in energy efficiency (E), water (W), and resilience (R).
 
