@@ -1,4 +1,4 @@
-from pearl_assessment import Pearl
+from assessment import Pearl
 from helpers import run_tests
 
 if __name__ == '__main__':
