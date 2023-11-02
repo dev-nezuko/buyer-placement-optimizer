@@ -1,16 +1,19 @@
-import unittest
-from tests import TestFileContent
-
 def read_input_data(filename):
   neighborhoods, home_buyers = [], []
 
   with open(filename, 'r') as file:
-    for line in file:
+    for line_number, line in enumerate(file, 1):
       parts = line.split()
+      if not parts:
+        continue
+      if parts[0] not in ('N', 'H') or len(parts) != (5 if parts[0] == 'N' else 6):
+        raise ValueError(f'Invalid record on line {line_number}')
       data_dict = {}
 
       data_dict[parts[0]] = parts[1]
 
+      if {val.split(':')[0] for val in parts[2:5]} != {'E', 'W', 'R'}:
+        raise ValueError(f'Expected E, W, R on line {line_number}')
       for val in parts[2:5]:
         key, value = val.split(':')
         data_dict[key] = int(value)
@@ -53,22 +56,3 @@ def calculate_buyer_scores(neighborhoods, home_buyers):
     buyers_scores[buyer['H']].append(buyer['prefs'])
     
   return buyers_scores
-
-def generate_selection(neighborhood, buyer, buyer_value):
-  return {
-    'neighborhood': neighborhood['N'],
-    'buyer': buyer,
-    'score': [b['score'] for b in buyer_value[:-1] if b['neighborhood'] == neighborhood['N']][0]
-  }
-
-def run_tests():
-  test_suite = unittest.TestSuite()
-  test_suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestFileContent))
-
-  test_runner = unittest.TextTestRunner()
-  test_result = test_runner.run(test_suite)
-
-  if test_result.wasSuccessful():
-    print("Generated output file is correct.")
-  else:
-    print("Generated output file does not match the expected output.")
